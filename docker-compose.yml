@@ -1,0 +1,22 @@
+services:
+  postgresql:
+    container_name: postgresql_theatre_reservation
+    image: postgres
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: theatre_reservation_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - theatre-reservation-net
+    restart: unless-stopped
+
+networks:
+  theatre-reservation-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
