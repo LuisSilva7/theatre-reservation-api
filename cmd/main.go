@@ -18,6 +18,6 @@ func main() {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
-	// router := routes.SetupRouter(db)
-	// router.Run(":8888")
+	router := routes.SetupRouter(db)
+	router.Run(":8888")
 }
