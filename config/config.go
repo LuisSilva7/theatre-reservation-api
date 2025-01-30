@@ -22,7 +22,7 @@ func LoadConfig() (*Config, error) {
 
 	config := &Config{
 		DBHost:     viper.GetString("DB_HOST"),
-		DBPort:     viper.GetInt("DB_PORT"),
+		DBPort:     viper.GetUint32("DB_PORT"),
 		DBUser:     viper.GetString("DB_USER"),
 		DBPassword: viper.GetString("DB_PASSWORD"),
 		DBName:     viper.GetString("DB_NAME"),

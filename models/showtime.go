@@ -9,6 +9,6 @@ type Showtime struct {
 	EndTime        time.Time `gorm:"not null;" json:"end_time"`
 	AvailableSeats int       `gorm:"not null;" json:"available_seats"`
 	Price          float64   `gorm:"not null;" json:"price"`
-	CreatedAt      time.Time `json:"createdAt" json="created_at"`
-	UpdatedAt      time.Time `json:"updatedAt" json="updated_at"`
+	CreatedAt      time.Time `json:"createdAt" json:"created_at"`
+	UpdatedAt      time.Time `json:"updatedAt" json:"updated_at"`
 }

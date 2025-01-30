@@ -9,5 +9,5 @@ type Reservation struct {
 	SeatNumbers     string    `gorm:"not null;" json:"seat_numbers"`
 	ReservationTime time.Time `gorm:"not null;" json:"reservation_time"`
 	CreatedAt       time.Time `json:"created_at"`
-	UpdatedAt       time.Time `json:"created_at"`
+	UpdatedAt       time.Time `json:"updated_at"`
 }

@@ -2,6 +2,7 @@ package utils
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/LuisSilva7/theatre-reservation-api/models"
 	"github.com/dgrijalva/jwt-go"
@@ -17,7 +18,7 @@ func AuthMiddleware() gin.HandlerFunc {
 			return
 		}
 
-		token, err := ValidateToken(tokenString)
+		token, err := ValidateJWT(tokenString)
 		if err != nil {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
 			c.Abort()
@@ -53,7 +54,7 @@ func AdminMiddleware() gin.HandlerFunc {
 			return
 		}
 
-		if roleStr != string(models.AdminRole) {
+		if roleStr != strconv.Itoa(int(models.AdminRole)) {
 			c.JSON(http.StatusForbidden, gin.H{"error": "Admin access required"})
 			c.Abort()
 			return
