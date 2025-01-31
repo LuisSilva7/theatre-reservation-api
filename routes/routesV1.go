@@ -40,7 +40,6 @@ func SetupRouter(db *gorm.DB) *gin.Engine {
 		protected.POST("/user/reservations", reservationHandler.CreateReservation)
 		protected.DELETE("/user/reservations/:reservationID", reservationHandler.CancelReservation)
 		protected.GET("/showtimes/:showtimeID/seats", reservationHandler.GetAvailableSeats)
-		protected.GET("/shows/:showID/showtimes", showtimeHandler.GetShowtimesByShow)
 	}
 
 	// Admin routes
@@ -52,7 +51,6 @@ func SetupRouter(db *gorm.DB) *gin.Engine {
 		admin.GET("/reservations", reservationHandler.GetAllReservations)
 		admin.POST("/users/:userID/promote", authHandler.PromoteToAdmin)
 		admin.POST("/showtimes", showtimeHandler.AddShowtime)
-		admin.PUT("/showtimes/:showtimeID", showtimeHandler.UpdateShowtime)
 		admin.DELETE("/showtimes/:showtimeID", showtimeHandler.DeleteShowtime)
 		admin.GET("/shows/:showID/report", showHandler.GetReport)
 	}
