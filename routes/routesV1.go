@@ -48,7 +48,6 @@ func SetupRouter(db *gorm.DB) *gin.Engine {
 	admin.Use(utils.AuthMiddleware(), utils.AdminMiddleware())
 	{
 		admin.POST("/shows", showHandler.AddShow)
-		admin.PUT("/shows/:showID", showHandler.UpdateShow)
 		admin.DELETE("/shows/:showID", showHandler.DeleteShow)
 		admin.GET("/reservations", reservationHandler.GetAllReservations)
 		admin.POST("/users/:userID/promote", authHandler.PromoteToAdmin)
